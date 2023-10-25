@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		041276AB2AE92CBB0007E052 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041276AA2AE92CBB0007E052 /* AppDelegate.swift */; };
 		041276AD2AE92CBB0007E052 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041276AC2AE92CBB0007E052 /* SceneDelegate.swift */; };
-		041276AF2AE92CBB0007E052 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041276AE2AE92CBB0007E052 /* ViewController.swift */; };
+		041276AF2AE92CBB0007E052 /* FeedViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041276AE2AE92CBB0007E052 /* FeedViewController.swift */; };
 		041276B22AE92CBB0007E052 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 041276B02AE92CBB0007E052 /* Main.storyboard */; };
 		041276B42AE92CBD0007E052 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 041276B32AE92CBD0007E052 /* Assets.xcassets */; };
 		041276B72AE92CBD0007E052 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 041276B52AE92CBD0007E052 /* LaunchScreen.storyboard */; };
@@ -19,13 +19,14 @@
 		041276C82AE931E90007E052 /* PostAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041276C72AE931E90007E052 /* PostAPI.swift */; };
 		041276CA2AE9324C0007E052 /* PostNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041276C92AE9324C0007E052 /* PostNetwork.swift */; };
 		041276CC2AE932B90007E052 /* PostNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041276CB2AE932B90007E052 /* PostNetworkManager.swift */; };
+		041276D02AE937610007E052 /* FeedPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041276CF2AE937610007E052 /* FeedPostTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		041276A72AE92CBB0007E052 /* Natife_TT.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Natife_TT.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		041276AA2AE92CBB0007E052 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		041276AC2AE92CBB0007E052 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		041276AE2AE92CBB0007E052 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		041276AE2AE92CBB0007E052 /* FeedViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedViewController.swift; sourceTree = "<group>"; };
 		041276B12AE92CBB0007E052 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		041276B32AE92CBD0007E052 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		041276B62AE92CBD0007E052 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -36,6 +37,7 @@
 		041276C72AE931E90007E052 /* PostAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostAPI.swift; sourceTree = "<group>"; };
 		041276C92AE9324C0007E052 /* PostNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostNetwork.swift; sourceTree = "<group>"; };
 		041276CB2AE932B90007E052 /* PostNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostNetworkManager.swift; sourceTree = "<group>"; };
+		041276CF2AE937610007E052 /* FeedPostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPostTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,10 +70,10 @@
 		041276A92AE92CBB0007E052 /* Natife_TT */ = {
 			isa = PBXGroup;
 			children = (
+				041276CD2AE934C50007E052 /* VC */,
 				041276BE2AE930960007E052 /* NetworkLayer */,
 				041276AA2AE92CBB0007E052 /* AppDelegate.swift */,
 				041276AC2AE92CBB0007E052 /* SceneDelegate.swift */,
-				041276AE2AE92CBB0007E052 /* ViewController.swift */,
 				041276B02AE92CBB0007E052 /* Main.storyboard */,
 				041276B32AE92CBD0007E052 /* Assets.xcassets */,
 				041276B52AE92CBD0007E052 /* LaunchScreen.storyboard */,
@@ -107,6 +109,23 @@
 				041276CB2AE932B90007E052 /* PostNetworkManager.swift */,
 			);
 			path = NetworkManager;
+			sourceTree = "<group>";
+		};
+		041276CD2AE934C50007E052 /* VC */ = {
+			isa = PBXGroup;
+			children = (
+				041276CE2AE937330007E052 /* Cells */,
+				041276AE2AE92CBB0007E052 /* FeedViewController.swift */,
+			);
+			path = VC;
+			sourceTree = "<group>";
+		};
+		041276CE2AE937330007E052 /* Cells */ = {
+			isa = PBXGroup;
+			children = (
+				041276CF2AE937610007E052 /* FeedPostTableViewCell.swift */,
+			);
+			path = Cells;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -180,7 +199,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				041276AF2AE92CBB0007E052 /* ViewController.swift in Sources */,
+				041276AF2AE92CBB0007E052 /* FeedViewController.swift in Sources */,
 				041276C82AE931E90007E052 /* PostAPI.swift in Sources */,
 				041276C42AE931230007E052 /* FullPost.swift in Sources */,
 				041276AB2AE92CBB0007E052 /* AppDelegate.swift in Sources */,
@@ -189,6 +208,7 @@
 				041276AD2AE92CBB0007E052 /* SceneDelegate.swift in Sources */,
 				041276C62AE931B30007E052 /* Response.swift in Sources */,
 				041276C22AE930B80007E052 /* FeedPost.swift in Sources */,
+				041276D02AE937610007E052 /* FeedPostTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -13,6 +13,8 @@ class FeedViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     
     private var posts: [FeedPost.Post]?
+    private var expandedPosts = [Int]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configSortButton()
@@ -38,11 +40,12 @@ class FeedViewController: UIViewController {
             default:
                 break
             }
+            self.sortButton.setImage(action.image, for: .normal)
             self.tableView.reloadData()
         }
         
-        sortButton.menu = UIMenu(children: [UIAction(title: "Likes", image: UIImage(systemName: "heart"),handler: action),
-                                            UIAction(title: "Date", image: UIImage(systemName: "calendar"), handler: action)])
+        sortButton.menu = UIMenu(children: [UIAction(title: "Likes", image: UIImage(systemName: "heart.rectangle.fill")?.withTintColor(.red),handler: action),
+                                            UIAction(title: "Date", image: UIImage(systemName: "calendar")?.withTintColor(.darkGray), handler: action)])
         
         sortButton.showsMenuAsPrimaryAction = true
         sortButton.changesSelectionAsPrimaryAction = true
@@ -78,10 +81,88 @@ extension FeedViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "FeedPostTableViewCell") as? FeedPostTableViewCell else { return UITableViewCell() }
         
+        guard let post = posts?[indexPath.row] as? FeedPost.Post else { return UITableViewCell() }
+        
+        cell.postTitle.text = post.title
+        cell.postText.text = post.previewText
+        cell.likesCount.text = String(post.likesCount)
+        
+        let timeStamp = TimeInterval(post.timeshamp)
+        let date = Date.init(timeIntervalSinceNow: -timeStamp)
+        let calendar = Calendar.current
+        let componentSet: Set = [Calendar.Component.year, .month, .day, .hour, .minute, .second]
+        let components = calendar.dateComponents(componentSet, from: date, to: Date())
+        
+        if let year = components.year, year > 5 {
+            let formatter = DateFormatter()
+            formatter.dateStyle = .full
+            formatter.dateFormat = "dd.MM.yyyy"
+            cell.date.text = formatter.string(from: date)
+        } else {
+            let formatter = DateComponentsFormatter()
+            formatter.unitsStyle = .full
+            if components.year != nil {
+                formatter.allowedUnits = [.year]
+            } else if  components.month != nil {
+                formatter.allowedUnits = [.month]
+            } else if  components.day != nil {
+                formatter.allowedUnits = [.day]
+            } else if  components.hour != nil {
+                formatter.allowedUnits = [.hour]
+            } else if  components.minute != nil {
+                formatter.allowedUnits = [.minute]
+            } else if  components.second != nil {
+                formatter.allowedUnits = [.second]
+            }
+            
+            cell.date.text = formatter.string(from: timeStamp)
+        }
+        
+        cell.didExpandButtonPressed = {
+            if cell.postText.numberOfLines == 0 {
+                self.expandedPosts.append(post.postId)
+            } else {
+                self.expandedPosts.removeAll { $0 == post.postId}
+            }
+            tableView.beginUpdates()
+            tableView.endUpdates()
+        }
         
         return cell
     }
     
+    func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+        if let cell = cell as? FeedPostTableViewCell {
+            let lines = cell.postText.maxNumberOfLines
+            tableView.beginUpdates()
+            cell.expandButton.isHidden = true
+            
+            if let post = posts?[indexPath.row] {
+                if expandedPosts.contains(post.postId) {
+                    cell.postText.numberOfLines = 0
+                    cell.expandButton.isHidden = false
+                    cell.expandButton.setTitle("Collapse", for: .normal)
+                } else if lines > 2 {
+                    cell.postText.numberOfLines = 2
+                    cell.expandButton.isHidden = false
+                    cell.expandButton.setTitle("Expand", for: .normal)
+                }
+            }
+            
+            tableView.endUpdates()
+        }
+    }
     
+    
+}
+
+extension UILabel {
+    var maxNumberOfLines: Int {
+        let size = CGSize(width: frame.size.width, height: CGFloat(MAXFLOAT))
+        let text = (self.text ?? "") as NSString
+        let textHeight = text.boundingRect(with: size, options: .usesLineFragmentOrigin, attributes: [.font: font!], context: nil).height
+        let lineHeight = font.lineHeight
+        return Int( ceil(textHeight/lineHeight) )
+    }
 }
 
