@@ -9,6 +9,7 @@ import UIKit
 
 class FullPostTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var date: UILabel!
     @IBOutlet weak var likesCount: UILabel!
     @IBOutlet weak var content: UILabel!

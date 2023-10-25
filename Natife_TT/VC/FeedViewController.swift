@@ -44,11 +44,13 @@ class FeedViewController: UIViewController {
             self.tableView.reloadData()
         }
         
-        sortButton.menu = UIMenu(children: [UIAction(title: "Likes", image: UIImage(systemName: "heart.rectangle.fill"),handler: action),
+        sortButton.menu = UIMenu(children: [UIAction(title: "Likes", image: UIImage(systemName: "heart.fill"),handler: action),
                                             UIAction(title: "Date", image: UIImage(systemName: "calendar"), handler: action)])
         
         sortButton.showsMenuAsPrimaryAction = true
-        sortButton.changesSelectionAsPrimaryAction = true
+        if #available(iOS 15.0, *) {
+            sortButton.changesSelectionAsPrimaryAction = true
+        }
     }
     
     private func fetchPosts() {
@@ -95,6 +97,7 @@ extension FeedViewController: UITableViewDataSource {
         tableView.beginUpdates()
         cell.postTitle.text = post.title
         cell.postText.text = post.previewText
+        cell.likeButton.setTitle("", for: .normal)
         cell.likesCount.text = String(post.likesCount)
         
         let timeStamp = TimeInterval(post.timeshamp).stringDate

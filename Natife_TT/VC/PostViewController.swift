@@ -88,6 +88,7 @@ extension PostViewController: UITableViewDataSource {
         
         cell.postTitle.text = post.title
         cell.content.text = post.text
+        cell.likeButton.setTitle("", for: .normal)
         cell.likesCount.text = String(post.likesCount)
         cell.date.text = TimeInterval(post.timeshamp).stringDate
         

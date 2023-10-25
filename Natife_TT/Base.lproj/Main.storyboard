@@ -2,6 +2,7 @@
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="RP3-KO-8ih">
     <device id="retina6_12" orientation="portrait" appearance="light"/>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
         <capability name="Image references" minToolsVersion="12.0"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
@@ -115,6 +116,7 @@
                                         <connections>
                                             <outlet property="date" destination="HY3-Wi-SR7" id="0jI-dO-gz0"/>
                                             <outlet property="expandButton" destination="2nV-g3-ANG" id="fcf-U4-BU8"/>
+                                            <outlet property="likeButton" destination="aF0-DS-O40" id="WHh-TT-QjL"/>
                                             <outlet property="likesCount" destination="X2r-HL-Bkj" id="asQ-xK-j2P"/>
                                             <outlet property="postText" destination="CBo-jI-2MI" id="JxC-ED-eCD"/>
                                             <outlet property="postTitle" destination="uXW-16-jYN" id="okd-p8-zBz"/>
@@ -145,7 +147,7 @@
                                     </children>
                                 </menu>
                                 <state key="normal">
-                                    <imageReference key="image" image="heart.rectangle.fill" catalog="system" symbolScale="large"/>
+                                    <imageReference key="image" image="heart.fill" catalog="system" symbolScale="large"/>
                                 </state>
                             </button>
                         </barButtonItem>
@@ -243,6 +245,7 @@
                                         <connections>
                                             <outlet property="content" destination="90b-rw-UZR" id="F5l-EJ-1cg"/>
                                             <outlet property="date" destination="5dw-4a-daJ" id="qsc-4X-yUN"/>
+                                            <outlet property="likeButton" destination="Gx5-3H-CqA" id="NtR-he-EHd"/>
                                             <outlet property="likesCount" destination="muB-9t-slB" id="H4C-Lu-ewx"/>
                                             <outlet property="postImage" destination="Ocx-cG-spk" id="YXn-F6-VCV"/>
                                             <outlet property="postTitle" destination="hhO-3R-Aeb" id="JSl-dx-HJX"/>
@@ -272,7 +275,6 @@
     </scenes>
     <resources>
         <image name="heart.fill" catalog="system" width="128" height="107"/>
-        <image name="heart.rectangle.fill" catalog="system" width="128" height="93"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

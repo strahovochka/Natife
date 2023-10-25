@@ -9,6 +9,7 @@ import UIKit
 
 class FeedPostTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var likeButton: UIButton!
     @IBOutlet weak var expandButton: UIButton!
     @IBOutlet weak var date: UILabel!
     @IBOutlet weak var likesCount: UILabel!
