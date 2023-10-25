@@ -20,6 +20,8 @@
 		041276CA2AE9324C0007E052 /* PostNetwork.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041276C92AE9324C0007E052 /* PostNetwork.swift */; };
 		041276CC2AE932B90007E052 /* PostNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041276CB2AE932B90007E052 /* PostNetworkManager.swift */; };
 		041276D02AE937610007E052 /* FeedPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041276CF2AE937610007E052 /* FeedPostTableViewCell.swift */; };
+		041276D22AE955F10007E052 /* FullPostTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041276D12AE955F10007E052 /* FullPostTableViewCell.swift */; };
+		041276D42AE9564F0007E052 /* PostViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 041276D32AE9564F0007E052 /* PostViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +40,8 @@
 		041276C92AE9324C0007E052 /* PostNetwork.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostNetwork.swift; sourceTree = "<group>"; };
 		041276CB2AE932B90007E052 /* PostNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostNetworkManager.swift; sourceTree = "<group>"; };
 		041276CF2AE937610007E052 /* FeedPostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedPostTableViewCell.swift; sourceTree = "<group>"; };
+		041276D12AE955F10007E052 /* FullPostTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FullPostTableViewCell.swift; sourceTree = "<group>"; };
+		041276D32AE9564F0007E052 /* PostViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PostViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -116,6 +120,7 @@
 			children = (
 				041276CE2AE937330007E052 /* Cells */,
 				041276AE2AE92CBB0007E052 /* FeedViewController.swift */,
+				041276D32AE9564F0007E052 /* PostViewController.swift */,
 			);
 			path = VC;
 			sourceTree = "<group>";
@@ -124,6 +129,7 @@
 			isa = PBXGroup;
 			children = (
 				041276CF2AE937610007E052 /* FeedPostTableViewCell.swift */,
+				041276D12AE955F10007E052 /* FullPostTableViewCell.swift */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
@@ -199,12 +205,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				041276D42AE9564F0007E052 /* PostViewController.swift in Sources */,
 				041276AF2AE92CBB0007E052 /* FeedViewController.swift in Sources */,
 				041276C82AE931E90007E052 /* PostAPI.swift in Sources */,
 				041276C42AE931230007E052 /* FullPost.swift in Sources */,
 				041276AB2AE92CBB0007E052 /* AppDelegate.swift in Sources */,
 				041276CA2AE9324C0007E052 /* PostNetwork.swift in Sources */,
 				041276CC2AE932B90007E052 /* PostNetworkManager.swift in Sources */,
+				041276D22AE955F10007E052 /* FullPostTableViewCell.swift in Sources */,
 				041276AD2AE92CBB0007E052 /* SceneDelegate.swift in Sources */,
 				041276C62AE931B30007E052 /* Response.swift in Sources */,
 				041276C22AE930B80007E052 /* FeedPost.swift in Sources */,
